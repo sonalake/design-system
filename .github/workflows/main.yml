@@ -1,14 +1,15 @@
 name: CI
-on: [push]
-jobs:
-  build:
-    name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
 
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        node: ['10.x', '12.x', '14.x']
-        os: [ubuntu-latest, windows-latest, macOS-latest]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: '*'
+
+jobs:
+  quality:
+    name: Build, Lint and Test
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
@@ -19,14 +20,53 @@ jobs:
         with:
           node-version: ${{ matrix.node }}
 
-      - name: Install deps and build (with cache)
+      - name: Install deps (with cache)
         uses: bahmutov/npm-install@v1
 
       - name: Lint
         run: yarn lint
+
+      - name: Format check
+        run: yarn prettier:check
+
+      - name: Typescript check
+        run: yarn tsc
 
       - name: Test
         run: yarn test --ci --coverage --maxWorkers=2
 
       - name: Build
         run: yarn build
+
+      - name: Build storybook
+        run: yarn build-storybook
+
+  publish:
+    name: Publish
+    if: ${{ github.ref == 'refs/heads/main' }}
+    needs: [quality]
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Use Node ${{ matrix.node }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node }}
+
+      - name: Install deps (with cache)
+        uses: bahmutov/npm-install@v1
+
+      - name: Build
+        run: yarn build
+
+      - name: Publish
+        run: yarn semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Storybook
+        run: yarn build-storybook -o ./public

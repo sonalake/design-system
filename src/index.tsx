@@ -1,3 +1,5 @@
+import './style.css';
+
 import React, { FC, HTMLAttributes, ReactChild } from 'react';
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -11,5 +13,9 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  * A custom Thing component. Neat!
  */
 export const Thing: FC<Props> = ({ children }) => {
-  return <div>{children || `the snozzberries taste like snozzberries`}</div>;
+  return (
+    <div className="text-purple-600">
+      {children || `the snozzberries taste like snozzberries`}
+    </div>
+  );
 };
