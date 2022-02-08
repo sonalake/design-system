@@ -1,5 +1,7 @@
-name: size
+name: Package Size
+
 on: [pull_request]
+
 jobs:
   size:
     runs-on: ubuntu-latest
