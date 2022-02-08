@@ -43,7 +43,7 @@ jobs:
 
   publish:
     name: Publish
-    if: ${{ github.ref == 'refs/heads/master' }}
+    # if: ${{ github.ref == 'refs/heads/master' }}
     needs: [quality]
     runs-on: ubuntu-latest
 
