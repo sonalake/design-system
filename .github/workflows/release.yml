@@ -1,4 +1,4 @@
-name: CI
+name: Publish
 
 on:
   push:
@@ -7,8 +7,10 @@ on:
     branches: '*'
 
 jobs:
-  quality:
-    name: Build, Lint and Test
+  publish:
+    name: Publish
+    # if: ${{ github.ref == 'refs/heads/master' }}
+    needs: [quality]
     runs-on: ubuntu-latest
 
     steps:
@@ -23,20 +25,15 @@ jobs:
       - name: Install deps (with cache)
         uses: bahmutov/npm-install@v1
 
-      - name: Lint
-        run: yarn lint
-
-      - name: Format check
-        run: yarn prettier:check
-
-      - name: Typescript check
-        run: yarn tsc
-
-      - name: Test
-        run: yarn test --ci --coverage --maxWorkers=2
-
       - name: Build
         run: yarn build
 
-      - name: Build storybook
-        run: yarn build-storybook
+      - name: Publish
+        run: yarn semantic-release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Build Storybook
+        run: yarn build-storybook -o ./public
