@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
     branches: '*'
 
@@ -43,7 +43,7 @@ jobs:
 
   publish:
     name: Publish
-    if: ${{ github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     needs: [quality]
     runs-on: ubuntu-latest
 
