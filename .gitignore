@@ -3,3 +3,16 @@
 node_modules
 .cache
 dist
+storybook-static
+coverage
+junit.xml
+
+#webstorm
+.idea/*
+
+#vscode
+.vscode/*
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace

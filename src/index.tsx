@@ -1,5 +1,7 @@
 import React, { FC, HTMLAttributes, ReactChild } from 'react';
 
+import './style.css';
+
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   /** custom content, defaults to 'the snozzberries taste like snozzberries' */
   children?: ReactChild;
@@ -11,5 +13,9 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
  * A custom Thing component. Neat!
  */
 export const Thing: FC<Props> = ({ children }) => {
-  return <div>{children || `the snozzberries taste like snozzberries`}</div>;
+  return (
+    <div className="text-purple-600">
+      {children || `the snozzberries taste like snozzberries`}
+    </div>
+  );
 };

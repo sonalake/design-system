@@ -1,0 +1,52 @@
+{
+  "plugins": ["import", "simple-import-sort", "jest", "testing-library"],
+  "extends": [
+    "react-app",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "ignorePatterns": ["dist/"],
+  "rules": {
+    "no-nested-ternary": "error",
+    "jest/no-focused-tests": "error",
+    "import/first": "error",
+    "import/no-duplicates": "error",
+    "import/namespace": "off",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          ["^react", "^@?\\w"],
+          ["^(@|@company|@ui|components|utils|config|vendored-lib)(/.*|$)"],
+          ["^\\u0000"],
+          ["^.+\\.s?css$"],
+          [
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./?$",
+            "^\\./(?=.*/)(?!/?$)",
+            "^\\.(?!/?$)",
+            "^\\./?$"
+          ]
+        ]
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["**/__tests__/**/*", "**/*.{spec,test}.*"],
+      "rules": {
+        "testing-library/prefer-user-event": "error",
+        "testing-library/no-await-sync-events": "error",
+        "testing-library/no-await-sync-query": "error",
+        "testing-library/no-debugging-utils": "error",
+        "testing-library/no-dom-import": "error",
+        "testing-library/no-promise-in-fire-event": "error",
+        "testing-library/no-unnecessary-act": "error",
+        "testing-library/prefer-find-by": "error",
+        "testing-library/prefer-presence-queries": "error",
+        "testing-library/prefer-screen-queries": "error"
+      }
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "version": "0.1.0",
+  "version": "0.0.0-development",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -13,15 +13,22 @@
   "scripts": {
     "start": "tsdx watch",
     "build": "tsdx build",
-    "test": "tsdx test --passWithNoTests",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
+    "postbuild": "copyfiles tailwind.config.js dist && copyfiles -u 1 src/fonts/* dist",
+    "test": "tsdx test",
+    "lint": "yarn eslint --max-warnings 0 --ext .ts,.tsx src",
+    "prettier": "prettier 'src/**/*.{js,jsx,ts,tsx,json,css,scss,md}'",
+    "format": "yarn prettier --write",
+    "prettier:check": "yarn prettier --check",
+    "prepare": "husky install",
     "size": "size-limit",
     "analyze": "size-limit --why",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "commit": "cz",
+    "semantic-release": "semantic-release"
   },
   "peerDependencies": {
+    "clsx": "^1.1.1",
     "react": ">=16"
   },
   "husky": {
@@ -35,37 +42,71 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "design-system",
-  "author": "Michael Gray",
+  "name": "@sonalake/design-system",
   "module": "dist/design-system.esm.js",
   "size-limit": [
     {
       "path": "dist/design-system.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "1000 KB"
     },
     {
       "path": "dist/design-system.esm.js",
-      "limit": "10 KB"
+      "limit": "200 KB"
     }
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sonalake/design-system.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "devDependencies": {
     "@babel/core": "^7.17.0",
+    "@commitlint/cli": "^16.1.0",
+    "@commitlint/config-conventional": "^16.0.0",
     "@size-limit/preset-small-lib": "^7.0.8",
     "@storybook/addon-essentials": "^6.4.18",
     "@storybook/addon-info": "^5.3.21",
     "@storybook/addon-links": "^6.4.18",
     "@storybook/addons": "^6.4.18",
     "@storybook/react": "^6.4.18",
+    "@testing-library/jest-dom": "^5.16.2",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
     "@types/react": "^17.0.39",
     "@types/react-dom": "^17.0.11",
+    "@types/regenerator-runtime": "^0.13.1",
+    "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.3",
+    "copyfiles": "^2.4.1",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^26.1.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-testing-library": "^5.0.5",
     "husky": "^7.0.4",
+    "identity-obj-proxy": "^3.0.0",
+    "jest-junit": "^13.0.0",
+    "jest-transform-stub": "^2.0.0",
+    "postcss": "^8.4.6",
+    "postcss-loader": "^6.2.1",
+    "prettier": "^2.5.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-is": "^17.0.2",
+    "regenerator-runtime": "^0.13.9",
+    "rollup-plugin-postcss": "^4.0.2",
+    "semantic-release": "^19.0.2",
     "size-limit": "^7.0.8",
+    "tailwindcss": "^3.0.18",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
     "typescript": "^4.5.5"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
