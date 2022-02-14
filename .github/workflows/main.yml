@@ -8,7 +8,7 @@ on:
 
 jobs:
   quality:
-    name: Build, Lint and Test
+    name: Build and Deploy
     runs-on: ubuntu-latest
 
     steps:
@@ -43,7 +43,7 @@ jobs:
 
   publish:
     name: Publish
-    if: ${{ github.ref == 'refs/heads/master' }}
+    # if: ${{ github.ref == 'refs/heads/master' }}
     needs: [quality]
     runs-on: ubuntu-latest
 
