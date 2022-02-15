@@ -29,3 +29,9 @@ export const Default: ComponentStory<typeof Typography> = () => (
     ))}
   </ul>
 );
+
+export const Custom: ComponentStory<typeof Typography> = () => (
+  <Typography as="div" variant="heading1" className="text-success-100">
+    Custom Element
+  </Typography>
+);
