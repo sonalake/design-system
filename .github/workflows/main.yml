@@ -43,7 +43,7 @@ jobs:
 
   publish:
     name: Publish
-    # if: ${{ github.ref == 'refs/heads/master' }}
+    if: ${{ github.ref == 'refs/heads/master' }}
     needs: [quality]
     runs-on: ubuntu-latest
 
@@ -71,6 +71,3 @@ jobs:
 
       - name: Build Storybook
         run: yarn build-storybook -o ./public
-
-      - name: Deploy Storybook
-        run: yarn deploy-storybook --ci
