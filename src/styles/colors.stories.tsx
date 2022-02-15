@@ -1,9 +1,6 @@
-import { Meta, Story } from '@storybook/react';
 import React, { useMemo } from 'react';
-import {
-  TailwindColorGroup,
-  TailwindValuesColor,
-} from 'tailwindcss/tailwind-config';
+import { Meta, Story } from '@storybook/react';
+
 import config from '../../tailwind.config';
 
 const meta: Meta = {
@@ -12,25 +9,24 @@ const meta: Meta = {
 
 export default meta;
 
+type TailwindColorValues = Record<string, string | Record<string, string>>;
+
 export const Colors: Story = () => {
   const colorEntries = useMemo(() => {
     const toColorEntries = (
-      obj: TailwindValuesColor,
+      obj: TailwindColorValues,
       namePrefix: string
-    ): [string, string][] =>
+    ): string[][] =>
       Object.entries(obj).reduce((acc, [colorName, colorData]) => {
         if (typeof colorData === 'string') {
           return [...acc, [`${namePrefix}${colorName}`, colorData]];
         } else {
-          return [
-            ...acc,
-            ...toColorEntries(colorData as TailwindColorGroup, `${colorName}-`),
-          ];
+          return [...acc, ...toColorEntries(colorData, `${colorName}-`)];
         }
-      }, [] as [string, string][]);
+      }, [] as string[][]);
 
     return toColorEntries(
-      (config.theme.extend?.colors as TailwindValuesColor) || {},
+      (config.theme.extend?.colors as TailwindColorValues) || {},
       ''
     );
   }, []);
