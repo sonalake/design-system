@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 
-import { QueryableComponent } from '../../types/index';
+import { QueryableComponent } from '../../models/index';
 import { TypographyAs, TypographyVariant } from './typography.model';
 import { getTypographyVariantStyles } from './typography.styles';
 import { getTypographyVariantComponent } from './typography.util';

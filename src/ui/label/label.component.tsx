@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { QueryableComponent } from '../../types/index';
+import { QueryableComponent } from '../../models/index';
 import { Typography } from '../index';
 
 type LabelProps = {
