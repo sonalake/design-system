@@ -11,5 +11,5 @@ export default {
 export const Default: ComponentStory<typeof Label> = () => <Label>Label</Label>;
 
 export const Required: ComponentStory<typeof Label> = () => (
-  <Label isRequired={true}>Label</Label>
+  <Label required={true}>Label</Label>
 );

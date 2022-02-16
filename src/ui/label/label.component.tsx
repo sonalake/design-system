@@ -4,13 +4,13 @@ import { QueryableComponent } from '../../types/index';
 import { Typography } from '../index';
 
 type LabelProps = {
-  isRequired?: boolean;
+  required?: boolean;
   htmlFor?: string;
   className?: string;
 } & QueryableComponent;
 
 export const Label: React.FC<LabelProps> = ({
-  isRequired,
+  required,
   htmlFor,
   className,
   children,
@@ -24,7 +24,7 @@ export const Label: React.FC<LabelProps> = ({
   >
     <>
       {children}
-      {isRequired && (
+      {required && (
         <Typography as="span" className="text-error-100 ml-1">
           *
         </Typography>
