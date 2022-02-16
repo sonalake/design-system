@@ -2,6 +2,10 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'media',
   theme: {
+    fontFamily: {
+      sans: ['Roboto', 'sans-serif'],
+      mono: ['Roboto Mono', 'monospace'],
+    },
     extend: {
       colors: {
         primary: {
@@ -26,7 +30,7 @@ module.exports = {
           100: '#dfe0dd',
         },
         black: '#1C2B36',
-        white: '#FFFFFF'
+        white: '#FFFFFF',
       },
     },
   },
