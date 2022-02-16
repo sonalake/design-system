@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 
+import { QueryableComponent } from '../../types/index';
 import { TypographyAs, TypographyVariant } from './typography.model';
 import { getTypographyVariantStyles } from './typography.styles';
 import { getTypographyVariantComponent } from './typography.util';
@@ -15,8 +16,7 @@ export type TypographyProps<As extends TypographyAs = 'span'> = Omit<
   as?: As;
   variant?: TypographyVariant;
   className?: string;
-  'data-testid'?: string;
-};
+} & QueryableComponent;
 
 export const Typography = <As extends TypographyAs = 'span'>({
   children,
