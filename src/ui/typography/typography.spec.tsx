@@ -3,7 +3,7 @@ import { getTypographyVariantComponent } from './typography.util';
 
 describe('Typography', () => {
   describe('Utils', () => {
-    const compoenntTestCases: {
+    const componentTestCases: {
       variant: TypographyVariant;
       component: TypographyAs;
     }[] = [
@@ -17,7 +17,7 @@ describe('Typography', () => {
       { variant: 'subtitle2', component: 'h6' },
     ];
 
-    test.each(compoenntTestCases)(
+    test.each(componentTestCases)(
       'getTypographyVariantComponent should return the correct components',
       ({ variant, component }) =>
         expect(getTypographyVariantComponent(variant)).toBe(component)
