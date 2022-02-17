@@ -4,7 +4,8 @@ import clsx from 'clsx';
 import { BaseInputProps } from '../../models';
 import { getTextBasedInputClasses } from '../../utils/text-based-input.utils';
 
-type TextInputProps = BaseInputProps & ComponentPropsWithRef<'input'>;
+type TextInputProps = Omit<ComponentPropsWithRef<'input'>, 'size'> &
+  BaseInputProps;
 
 export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
   ({ disabled, readOnly, error, size, className, ...rest }, ref) => {
@@ -18,7 +19,8 @@ export const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           aria-invalid={error || undefined}
           className={clsx(
             getTextBasedInputClasses({
-              disabled: disabled || readOnly,
+              disabled,
+              readOnly,
               error,
               size,
             }),
