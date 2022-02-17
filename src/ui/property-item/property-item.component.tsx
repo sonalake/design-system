@@ -13,7 +13,10 @@ export const PropertyItem = ({
   isInline,
 }: PropertyItemProps) => (
   <div
-    className={clsx({ flex: isInline, 'flex-inline items-center': isInline })}
+    className={clsx('flex', {
+      'flex-col': !isInline,
+      'items-center': isInline,
+    })}
   >
     {label && <div className={clsx({ 'mr-1': isInline })}>{label}</div>}
     {children}
