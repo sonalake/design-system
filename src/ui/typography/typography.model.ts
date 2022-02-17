@@ -4,6 +4,7 @@ export type TypographyAs =
   | 'div'
   | 'p'
   | 'em'
+  | 'label'
   | 'h1'
   | 'h2'
   | 'h3'
