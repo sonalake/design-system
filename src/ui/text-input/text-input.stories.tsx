@@ -8,26 +8,40 @@ export default {
   component: TextInput,
 } as ComponentMeta<typeof TextInput>;
 
-export const Default: ComponentStory<typeof TextInput> = () => (
-  <TextInput defaultValue="Default" />
+const Template: ComponentStory<typeof TextInput> = (args) => (
+  <TextInput {...args} />
 );
 
-export const WithPlaceholder: ComponentStory<typeof TextInput> = () => (
-  <TextInput placeholder="Placeholder" />
-);
+export const Default = Template.bind({});
+Default.args = {
+  defaultValue: 'Default',
+};
 
-export const Small: ComponentStory<typeof TextInput> = () => (
-  <TextInput size="sm" defaultValue="Small" />
-);
+export const WithPlaceholder = Template.bind({});
+WithPlaceholder.args = {
+  placeholder: 'Placeholder',
+};
 
-export const WithError: ComponentStory<typeof TextInput> = () => (
-  <TextInput error={true} defaultValue="Error" />
-);
+export const Small = Template.bind({});
+Small.args = {
+  size: 'sm',
+  defaultValue: 'Small',
+};
 
-export const Disabled: ComponentStory<typeof TextInput> = () => (
-  <TextInput disabled={true} defaultValue="Disabled" />
-);
+export const WithError = Template.bind({});
+WithError.args = {
+  error: true,
+  defaultValue: 'Error',
+};
 
-export const Readonly: ComponentStory<typeof TextInput> = () => (
-  <TextInput readOnly={true} defaultValue="Readonly" />
-);
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+  defaultValue: 'Disabled',
+};
+
+export const Readonly = Template.bind({});
+Readonly.args = {
+  readOnly: true,
+  defaultValue: 'Readonly',
+};
