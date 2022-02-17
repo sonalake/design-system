@@ -23,7 +23,7 @@ const typographyEntries = [
 export const Default: ComponentStory<typeof Typography> = () => (
   <ul className="mt-2">
     {typographyEntries.map(([variant, title]) => (
-      <li className="py-2 flex items-center">
+      <li key={variant} className="py-2 flex items-center">
         <Typography variant={variant as TypographyVariant}>{title}</Typography>
       </li>
     ))}
