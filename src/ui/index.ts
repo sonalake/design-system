@@ -1,3 +1,4 @@
 export * from './alert';
-export * from './typography';
 export * from './label';
+export * from './property-item';
+export * from './typography';

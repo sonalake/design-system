@@ -15,7 +15,7 @@ export const getTypographyVariantStyles = (variant: TypographyVariant) => ({
   'text-2xl': variant === 'heading3',
   'text-xl': variant === 'heading4',
   'text-lg': variant === 'subtitle1',
-  'text-md text-neutral-100': variant === 'subtitle2',
+  'text-md text-neutral-400': variant === 'subtitle2',
   'text-md': variant === 'body',
-  'text-sm text-neutral-100': variant === 'caption',
+  'text-sm text-neutral-400': variant === 'caption',
 });
