@@ -4,3 +4,4 @@ export * from './pagination';
 export * from './property-item';
 export * from './table';
 export * from './typography';
+export * from './text-input';
