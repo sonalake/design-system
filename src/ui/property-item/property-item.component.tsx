@@ -2,14 +2,14 @@ import React, { ReactNode } from 'react';
 import clsx from 'clsx';
 
 export type PropertyItemProps = {
-  label?: ReactNode;
-  isInline?: boolean;
+  label: ReactNode;
   children: ReactNode;
+  isInline?: boolean;
 };
 
 export const PropertyItem = ({
-  children,
   label,
+  children,
   isInline,
 }: PropertyItemProps) => (
   <div
@@ -18,7 +18,7 @@ export const PropertyItem = ({
       'items-center': isInline,
     })}
   >
-    {label && <div className={clsx({ 'mr-1': isInline })}>{label}</div>}
+    <div className={clsx({ 'mr-1': isInline })}>{label}</div>
     {children}
   </div>
 );
