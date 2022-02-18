@@ -1,4 +1,4 @@
-import { InputSize } from '.';
+export type InputSize = 'md' | 'sm';
 
 export type BaseInputProps = {
   size?: InputSize;
