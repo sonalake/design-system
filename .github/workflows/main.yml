@@ -71,6 +71,3 @@ jobs:
 
       - name: Build Storybook
         run: yarn build-storybook -o ./public
-
-      - name: Deploy Storybook
-        run: yarn deploy-storybook
