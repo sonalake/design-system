@@ -31,7 +31,7 @@ const Template: ComponentStory<typeof Tooltip> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  children: <button>Show Tooltip</button>,
+  children: <button type="button">Show Tooltip</button>,
   content: 'This is the content!',
   side: 'bottom',
 };

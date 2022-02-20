@@ -22,13 +22,13 @@ export default meta;
 export const Error: ComponentStory<typeof Alert> = () => (
   <Alert>
     <AlertTrigger asChild>
-      <button>Show error</button>
+      <button type="button">Show error</button>
     </AlertTrigger>
     <AlertContent size="sm">
       <AlertTitle icon={<MdError />}>Error</AlertTitle>
       <AlertDescription>This is the content of the Error.</AlertDescription>
       <AlertCancel asChild>
-        <button>Close</button>
+        <button type="button">Close</button>
       </AlertCancel>
     </AlertContent>
   </Alert>
@@ -37,7 +37,7 @@ export const Error: ComponentStory<typeof Alert> = () => (
 export const Confirmation: ComponentStory<typeof Alert> = () => (
   <Alert>
     <AlertTrigger asChild>
-      <button>Delete account</button>
+      <button type="button">Delete account</button>
     </AlertTrigger>
     <AlertContent>
       <AlertTitle icon={<MdWarning />}>
@@ -46,10 +46,10 @@ export const Confirmation: ComponentStory<typeof Alert> = () => (
       <AlertDescription>This action cannot be undone.</AlertDescription>
       <div className="flex space-x-6">
         <AlertCancel asChild>
-          <button>Cancel</button>
+          <button type="button">Cancel</button>
         </AlertCancel>
         <AlertAction asChild>
-          <button>Continue</button>
+          <button type="button">Continue</button>
         </AlertAction>
       </div>
     </AlertContent>

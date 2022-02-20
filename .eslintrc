@@ -2,17 +2,21 @@
   "plugins": ["import", "simple-import-sort", "jest", "testing-library"],
   "extends": [
     "react-app",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript"
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:storybook/recommended"
   ],
   "ignorePatterns": ["dist/"],
   "rules": {
+    "no-console": "warn",
     "no-nested-ternary": "error",
+    "react/self-closing-comp": "warn",
+    "react/button-has-type": "warn",
     "jest/no-focused-tests": "error",
     "import/first": "error",
     "import/no-duplicates": "error",
     "import/namespace": "off",
+    "import/no-named-as-default": 0,
     "simple-import-sort/imports": [
       "error",
       {
