@@ -4,7 +4,7 @@ This repository contains Sonalake Design System components library.
 
 This project was bootstrapped with [tsdx](https://github.com/formium/tsdx). See its documentation for more details about the available scripts and build tools.
 
-Link to online storybook: [TODO: Add Link]
+Link to online storybook: [Sonalake Design System](https://sonalake.github.io/design-system/)
 
 ## Continuous Integration
 
