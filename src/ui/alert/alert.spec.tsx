@@ -18,16 +18,16 @@ describe('Alert', () => {
     const { container } = render(
       <Alert>
         <AlertTrigger asChild>
-          <button>Trigger</button>
+          <button type="button">Trigger</button>
         </AlertTrigger>
         <AlertContent>
           <AlertTitle>Title</AlertTitle>
           <AlertDescription>Description</AlertDescription>
           <AlertCancel asChild>
-            <button>Cancel</button>
+            <button type="button">Cancel</button>
           </AlertCancel>
           <AlertAction asChild>
-            <button>Action</button>
+            <button type="button">Action</button>
           </AlertAction>
         </AlertContent>
       </Alert>
