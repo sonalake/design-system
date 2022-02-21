@@ -39,7 +39,7 @@ jobs:
         run: yarn build
 
       - name: Build storybook
-        run: yarn build-storybook
+        run: yarn build:storybook
 
   publish:
     name: Publish
@@ -70,4 +70,9 @@ jobs:
           NPM_TOKEN: ${{ secrets.DESIGN_SYSTEM_RW }}
 
       - name: Build Storybook
-        run: yarn build-storybook -o ./public
+        run: yarn build:storybook -o ./public
+
+      - name: Deploy to GitHub Pages
+        run: yarn deploy:storybook
+        env:
+          GH_TOKEN: ${{ github.actor }}:${{ secrets.DESIGN_SYSTEM_RW }}
