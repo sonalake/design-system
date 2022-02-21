@@ -90,7 +90,7 @@ export const WithPagination = () => (
     enablePagination
     initialPageSize={pageSize}
     onChange={action('onChange')}
-    totalCount={users.length}
+    totalRows={users.length}
     pageSizeOptions={[5, 10, 25, 50]}
   />
 );

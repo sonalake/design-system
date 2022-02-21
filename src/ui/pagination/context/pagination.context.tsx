@@ -19,22 +19,22 @@ type PaginationProviderProps<Data extends object> = PaginationProps<Data> & {
 export const PaginationProvider = <Data extends object>({
   children,
   pageSize,
-  totalCount,
+  totalRows,
   pageSizeOptions,
   ...props
 }: PaginationProviderProps<Data>) => {
-  const pageCount = Math.ceil((totalCount ?? 0) / pageSize);
+  const pageCount = Math.ceil((totalRows ?? 0) / pageSize);
 
   const value = useMemo(
     () => ({
       pageSize,
-      totalCount,
+      totalRows,
       pageCount,
-      pages: totalCount !== undefined ? _range(1, pageCount + 1) : [],
+      pages: totalRows !== undefined ? _range(1, pageCount + 1) : [],
       pageSizeOptions: pageSizeOptions ?? [],
       ...props,
     }),
-    [pageCount, pageSize, pageSizeOptions, props, totalCount]
+    [pageCount, pageSize, pageSizeOptions, props, totalRows]
   );
 
   return (

@@ -6,7 +6,7 @@ import { Pagination, PaginationOwnProps } from './pagination.component';
 const props: PaginationOwnProps<any> = {
   pageIndex: 0,
   pageSize: 10,
-  totalCount: 100,
+  totalRows: 100,
   canPreviousPage: true,
   canNextPage: true,
   previousPage: () => {},
@@ -68,7 +68,7 @@ describe('Pagination', () => {
     },
     {
       description: 'when pages count is not greater than 5, displays all pages',
-      props: { ...props, totalCount: 50 },
+      props: { ...props, totalRows: 50 },
       labels: [
         'Prev',
         'Page 1',
@@ -82,15 +82,15 @@ describe('Pagination', () => {
   ];
 
   test('displays number of results', async () => {
-    const { rerender } = render(<Pagination {...props} totalCount={0} />);
+    const { rerender } = render(<Pagination {...props} totalRows={0} />);
 
     expect(screen.getByText('0-0 of 0')).toBeInTheDocument();
 
-    rerender(<Pagination {...props} totalCount={1000} />);
+    rerender(<Pagination {...props} totalRows={1000} />);
 
     expect(screen.getByText('1-10 of 1000')).toBeInTheDocument();
 
-    rerender(<Pagination {...props} totalCount={undefined} />);
+    rerender(<Pagination {...props} totalRows={undefined} />);
 
     expect(screen.queryByText('0-0 of 0')).not.toBeInTheDocument();
   });

@@ -83,7 +83,7 @@ describe('Table', () => {
         data={data}
         enablePagination
         pageSize={10}
-        totalCount={12}
+        totalRows={12}
         pageSizeOptions={[5, 10, 15]}
       />
     );
@@ -108,7 +108,7 @@ describe('Table', () => {
         data={data}
         enablePagination
         pageSize={10}
-        totalCount={12}
+        totalRows={12}
         isLoading={true}
       />
     );

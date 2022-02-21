@@ -9,7 +9,7 @@ type ReactTablePaginationProps<Data extends object> = Pick<
 
 export type PaginationProps<Data extends object> =
   ReactTablePaginationProps<Data> &
-    Pick<TablePaginationProps, 'totalCount' | 'pageSizeOptions'> &
+    Pick<TablePaginationProps, 'totalRows' | 'pageSizeOptions'> &
     Omit<TableState<Data>, 'sortBy'> & {
       onPageSizeChange?: (pageSize: number) => void;
     };

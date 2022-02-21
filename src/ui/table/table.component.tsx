@@ -38,7 +38,7 @@ export const Table = <Data extends object>({
   enablePagination,
   initialPageSize = 10,
   initialPageIndex = 0,
-  totalCount,
+  totalRows,
   pageSizeOptions,
   onChange,
 }: TableProps<Data>) => {
@@ -132,7 +132,7 @@ export const Table = <Data extends object>({
         <Pagination
           pageIndex={pageIndex}
           pageSize={pageSize}
-          totalCount={totalCount}
+          totalRows={totalRows}
           pageSizeOptions={pageSizeOptions}
           canNextPage={canNextPage}
           canPreviousPage={canPreviousPage}

@@ -8,7 +8,7 @@ on:
 
 jobs:
   quality:
-    name: Build and Deploy
+    name: Quality and Build
     runs-on: ubuntu-latest
 
     steps:
@@ -42,7 +42,7 @@ jobs:
         run: yarn build:storybook
 
   publish:
-    name: Publish
+    name: Publish and Deploy
     if: ${{ github.ref == 'refs/heads/master' }}
     needs: [quality]
     runs-on: ubuntu-latest

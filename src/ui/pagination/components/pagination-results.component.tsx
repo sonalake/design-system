@@ -4,16 +4,16 @@ import { Typography } from '../../typography';
 import { usePaginationContext } from '../context';
 
 export const PaginationResults = () => {
-  const { pageSize, pageIndex, totalCount = 0 } = usePaginationContext();
+  const { pageSize, pageIndex, totalRows = 0 } = usePaginationContext();
 
-  const pageCount = Math.ceil(totalCount / pageSize);
+  const pageCount = Math.ceil(totalRows / pageSize);
   const startIndex = pageIndex * pageSize;
   const endIndex =
-    pageIndex < pageCount - 1 ? startIndex + pageSize : totalCount;
+    pageIndex < pageCount - 1 ? startIndex + pageSize : totalRows;
 
   return (
     <Typography className="text-neutral-400 mr-4">{`${
-      totalCount === 0 ? 0 : startIndex + 1
-    }-${endIndex} of ${totalCount}`}</Typography>
+      totalRows === 0 ? 0 : startIndex + 1
+    }-${endIndex} of ${totalRows}`}</Typography>
   );
 };

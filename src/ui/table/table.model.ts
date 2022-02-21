@@ -11,7 +11,7 @@ export type TablePaginationProps =
       enablePagination?: false;
       initialPageSize?: never;
       initialPageIndex?: never;
-      totalCount?: never;
+      totalRows?: never;
       pageSizeOptions?: never;
       onPageSizeChange?: never;
     }
@@ -19,9 +19,6 @@ export type TablePaginationProps =
       enablePagination: true;
       initialPageSize?: number;
       initialPageIndex?: number;
-      /**
-       * *Total* rows count.
-       */
-      totalCount?: number;
+      totalRows?: number;
       pageSizeOptions?: number[];
     };

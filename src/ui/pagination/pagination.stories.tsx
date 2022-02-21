@@ -12,7 +12,7 @@ export default meta;
 
 const Template: ComponentStory<typeof Pagination> = (args) => {
   const [pageIndex, setPageIndex] = useState(args.pageIndex);
-  const pageCount = Math.ceil((args.totalCount ?? 0) / args.pageSize);
+  const pageCount = Math.ceil((args.totalRows ?? 0) / args.pageSize);
 
   const previousPage = () => setPageIndex(pageIndex - 1);
   const nextPage = () => setPageIndex(pageIndex + 1);
@@ -39,5 +39,5 @@ Default.args = {
   pageIndex: 0,
   pageSize: 10,
   pageSizeOptions: [5, 10, 25, 50],
-  totalCount: 1000,
+  totalRows: 1000,
 };

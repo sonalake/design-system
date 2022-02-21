@@ -6,11 +6,11 @@ import { PageSizeSelect } from './page-size-select.component';
 import { PaginationResults } from './pagination-results.component';
 
 export const PaginationInfo = () => {
-  const { pageSizeOptions, totalCount } = usePaginationContext();
+  const { pageSizeOptions, totalRows } = usePaginationContext();
 
   return (
     <div className="flex">
-      {totalCount !== undefined && <PaginationResults />}
+      {totalRows !== undefined && <PaginationResults />}
 
       {!_isEmpty(pageSizeOptions) && <PageSizeSelect />}
     </div>
