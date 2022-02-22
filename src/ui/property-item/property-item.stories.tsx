@@ -9,9 +9,9 @@ export default {
   title: 'Atoms/PropertyItem',
   component: PropertyItem,
   decorators: [
-    (Stroy) => (
+    (Story) => (
       <DefaultTestProviders>
-        <Stroy />
+        <Story />
       </DefaultTestProviders>
     ),
   ],
