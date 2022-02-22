@@ -1,6 +1,5 @@
 import React, { ComponentProps, forwardRef } from 'react';
 import { FormattedMessage } from 'react-intl';
-import clsx from 'clsx';
 
 import { QueryableComponent } from '../../models';
 import {
@@ -9,8 +8,7 @@ import {
   TypographyAsProps,
   TypographyVariant,
 } from './typography.model';
-import { getTypographyVariantStyles } from './typography.styles';
-import { getTypographyVariantComponent } from './typography.util';
+import { extractProps, getTypographyVariantComponent } from './typography.util';
 
 export type TypographyProps<As extends TypographyAs = 'span'> =
   FormattedMessageProps &
@@ -21,84 +19,43 @@ export type TypographyProps<As extends TypographyAs = 'span'> =
       className?: string;
     };
 
-export const Typography = <As extends TypographyAs = 'span'>({
-  id,
-  translationKey,
-  values,
-  description,
-  defaultMessage,
-  as,
-  variant = 'body',
-  className,
-  ...props
-}: TypographyProps<As>) => {
+export const Typography = <As extends TypographyAs = 'span'>(
+  props: TypographyProps<As>
+) => {
+  const { as, variant, id } = props;
   const Component = as ?? getTypographyVariantComponent(variant);
+  const [componentProps, translationProps] = extractProps(props);
+
+  if ('children' in props) {
+    return (
+      <FormattedMessage {...translationProps}>
+        {(...translation) => (
+          <Component {...componentProps}>
+            {props.children({ id }, ...translation)}
+          </Component>
+        )}
+      </FormattedMessage>
+    );
+  }
 
   return (
-    <FormattedMessage
-      id={translationKey}
-      values={values}
-      description={description}
-      defaultMessage={defaultMessage}
-    >
-      {'children' in props
-        ? (...translation) => (
-            <>
-              {props.children(
-                { 'data-testid': translationKey, id },
-                ...translation
-              )}
-            </>
-          )
-        : (translation) => (
-            <Component
-              data-testid={
-                translationKey || (props['data-testid'] ?? 'typography')
-              }
-              className={clsx(getTypographyVariantStyles(variant), className)}
-              {...(props as any)}
-            >
-              {translation}
-            </Component>
-          )}
-    </FormattedMessage>
+    <Component {...componentProps}>
+      <FormattedMessage {...translationProps} />
+    </Component>
   );
 };
 
 export const TypographyWithRef = forwardRef<
   HTMLElement,
   ComponentProps<typeof Typography>
->(
-  (
-    {
-      id,
-      translationKey,
-      values,
-      description,
-      defaultMessage,
-      as,
-      variant = 'body',
-      className,
-      ...props
-    },
-    ref
-  ) => {
-    const Component = as ?? getTypographyVariantComponent(variant);
+>((props, ref) => {
+  const { as, variant } = props;
+  const Component = as ?? getTypographyVariantComponent(variant);
+  const [componentProps, translationProps] = extractProps(props);
 
-    return (
-      <Component
-        ref={ref}
-        data-testid={translationKey || (props['data-testid'] ?? 'typography')}
-        className={clsx(getTypographyVariantStyles(variant), className)}
-        {...(props as any)}
-      >
-        <FormattedMessage
-          id={translationKey}
-          values={values}
-          description={description}
-          defaultMessage={defaultMessage}
-        />
-      </Component>
-    );
-  }
-);
+  return (
+    <Component {...componentProps} {...ref}>
+      <FormattedMessage {...translationProps} />
+    </Component>
+  );
+});

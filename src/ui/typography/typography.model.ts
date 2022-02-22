@@ -33,7 +33,7 @@ export type TypographyAsProps<As extends TypographyAs = 'span'> =
     >
   | {
       children: (
-        extraParams: { 'data-testid': string; id?: string },
+        extraParams: { id?: string },
         ...originalParams: React.ReactNode[]
       ) => React.ReactNode;
     };

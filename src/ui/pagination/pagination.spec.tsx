@@ -94,7 +94,7 @@ describe('Pagination', () => {
     expect(screen.getByText('1-10 of 1000')).toBeInTheDocument();
   });
 
-  test('doesn not display results', () => {
+  test('does not display results', () => {
     renderWithProviders(<Pagination {...props} totalRows={undefined} />);
 
     expect(screen.queryByText('0-0 of 0')).not.toBeInTheDocument();

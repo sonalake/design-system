@@ -33,13 +33,13 @@ describe('Typography', () => {
     );
   });
 
-  test('should render default typography in p', () => {
+  test('should render default typography in span', () => {
     const { container } = renderWithProviders(
       <Typography translationKey="FORMATTED_MESSAGE_ID" />,
       { translations }
     );
 
-    expect(container.querySelector('p')).toBeInTheDocument();
+    expect(container.querySelector('span')).toBeInTheDocument();
     expect(screen.getByText('FORMATTED_MESSAGE_ID')).toBeInTheDocument();
     expect(screen.getByTestId('FORMATTED_MESSAGE_ID')).toBeInTheDocument();
   });
