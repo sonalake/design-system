@@ -64,11 +64,8 @@ If you wish you can include the SDS tailwind config in your own projects configu
 ```javascript
 // tailwind.config.js
 module.exports = {
-  content: [
-    ...,
-    './node_modules/@sonalake/design-system/src/**/*.{js,jsx,ts,tsx}',
-  ],
-  presets: [..., require('@sonalake/design-system/dist/tailwind.config.js')],
+  content: ['./node_modules/@sonalake/design-system/src/**/*.{js,jsx,ts,tsx}'],
+  presets: [require('@sonalake/design-system/dist/tailwind.config.js')],
 };
 ```
 
