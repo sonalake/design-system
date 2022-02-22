@@ -1,8 +1,8 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { render } from '@testing-library/react';
 
-import { Formatting, FormattingProvider } from '../context';
-import { I18n } from '../i18n';
+import { Formatting } from '../context';
+import { DesignSystemProvider } from '../design-system.context';
 
 type TestRenderConfig = {
   formatting?: Formatting;
@@ -18,11 +18,13 @@ export const DefaultTestProviders = ({
   formatting,
   translations,
 }: DefaultTestProvidersConfig) => (
-  <FormattingProvider formatting={formatting}>
-    <I18n language="en" locales={{ en: translations || {} }}>
-      {children}
-    </I18n>
-  </FormattingProvider>
+  <DesignSystemProvider
+    formatting={formatting}
+    language="en"
+    locales={{ en: translations || {} }}
+  >
+    {children}
+  </DesignSystemProvider>
 );
 
 export const renderWithProviders = (

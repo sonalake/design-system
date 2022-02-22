@@ -1,7 +1,7 @@
 import React, { createContext, ReactNode } from 'react';
 
 import { useContextFallback } from '../../hooks';
-import { DEFAULT_FORMATTING } from './format.constant';
+import { DEFAULT_FORMATTING } from './formatting.constant';
 import { Formatting } from './formatting.model';
 
 export const FormattingContext = createContext<Formatting | undefined>(

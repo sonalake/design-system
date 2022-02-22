@@ -5,3 +5,5 @@ export * from './hooks';
 export * from './i18n';
 export * from './models';
 export * from './ui';
+
+export * from './design-system.context';
