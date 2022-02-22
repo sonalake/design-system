@@ -1,8 +1,9 @@
 import React from 'react';
 import { Column } from 'react-table';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
+import { renderWithProviders } from '../../utils';
 import { Table } from './table.component';
 import { User } from './table.stories';
 
@@ -28,14 +29,18 @@ const data = [
 describe('Table', () => {
   test('does not call onChange after the initial render', async () => {
     const onChange = jest.fn();
-    render(<Table columns={columns} data={data} onChange={onChange} />);
+    renderWithProviders(
+      <Table columns={columns} data={data} onChange={onChange} />
+    );
 
     expect(onChange).not.toHaveBeenCalled();
   });
 
   test('calls onChange if the internal state of the table has been changed', async () => {
     const onChange = jest.fn();
-    render(<Table columns={columns} data={data} onChange={onChange} />);
+    renderWithProviders(
+      <Table columns={columns} data={data} onChange={onChange} />
+    );
 
     userEvent.click(screen.getByRole('columnheader', { name: 'First name' }));
 
@@ -47,7 +52,7 @@ describe('Table', () => {
   });
 
   test('allows the user to sort data by clicking on the column headers', async () => {
-    render(<Table columns={columns} data={data} />);
+    renderWithProviders(<Table columns={columns} data={data} />);
 
     userEvent.click(screen.getByRole('columnheader', { name: 'First name' }));
 
@@ -63,7 +68,7 @@ describe('Table', () => {
   });
 
   test('uses initialSortBy for the initially sorted column', async () => {
-    render(
+    renderWithProviders(
       <Table
         columns={columns}
         data={data}
@@ -77,7 +82,7 @@ describe('Table', () => {
   });
 
   test('shows pagination controls if pagination is enabled', async () => {
-    render(
+    renderWithProviders(
       <Table
         columns={columns}
         data={data}
@@ -94,7 +99,7 @@ describe('Table', () => {
   });
 
   test('does not show pagination controls if pagination is not enabled', async () => {
-    render(<Table columns={columns} data={data} />);
+    renderWithProviders(<Table columns={columns} data={data} />);
 
     expect(
       screen.queryByRole('navigation', { name: 'Pagination' })
@@ -102,7 +107,7 @@ describe('Table', () => {
   });
 
   test('does not show pagination controls if table is in loading state', async () => {
-    render(
+    renderWithProviders(
       <Table
         columns={columns}
         data={data}

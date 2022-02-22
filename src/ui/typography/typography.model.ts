@@ -1,3 +1,5 @@
+import { FormattedMessage } from 'react-intl';
+
 export type TypographyAs =
   | 'strong'
   | 'span'
@@ -21,3 +23,24 @@ export type TypographyVariant =
   | 'subtitle2'
   | 'body'
   | 'caption';
+
+export type TypographyAsProps<As extends TypographyAs = 'span'> =
+  | Omit<
+      As extends TypographyAs
+        ? JSX.IntrinsicElements[As]
+        : React.ComponentProps<As>,
+      'children'
+    >
+  | {
+      children: (
+        extraParams: { 'data-testid': string; id?: string },
+        ...originalParams: React.ReactNode[]
+      ) => React.ReactNode;
+    };
+
+export type FormattedMessageProps = Omit<
+  React.ComponentProps<typeof FormattedMessage>,
+  'children' | 'tagName'
+> & {
+  translationKey: string;
+};

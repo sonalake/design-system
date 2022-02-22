@@ -4,10 +4,15 @@ import { Title } from '@radix-ui/react-alert-dialog';
 import { DialogHeader, DialogHeaderProps } from '../../dialog';
 import { TypographyWithRef } from '../../typography';
 
-export const AlertTitle = ({ children, icon }: DialogHeaderProps) => (
+type AlertTitleProps = { translationKey: string } & Pick<
+  DialogHeaderProps,
+  'icon'
+>;
+
+export const AlertTitle = ({ translationKey, icon }: AlertTitleProps) => (
   <DialogHeader icon={icon}>
     <Title asChild>
-      <TypographyWithRef variant="heading2">{children}</TypographyWithRef>
+      <TypographyWithRef variant="heading2" translationKey={translationKey} />
     </Title>
   </DialogHeader>
 );

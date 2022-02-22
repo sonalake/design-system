@@ -1,6 +1,7 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 
+import { renderWithProviders } from '../../utils';
 import { Pagination, PaginationOwnProps } from './pagination.component';
 
 const props: PaginationOwnProps<any> = {
@@ -81,23 +82,27 @@ describe('Pagination', () => {
     },
   ];
 
-  test('displays number of results', async () => {
-    const { rerender } = render(<Pagination {...props} totalRows={0} />);
+  test('displays zero results', async () => {
+    renderWithProviders(<Pagination {...props} totalRows={0} />);
 
     expect(screen.getByText('0-0 of 0')).toBeInTheDocument();
+  });
 
-    rerender(<Pagination {...props} totalRows={1000} />);
+  test('displays results', async () => {
+    renderWithProviders(<Pagination {...props} totalRows={1000} />);
 
     expect(screen.getByText('1-10 of 1000')).toBeInTheDocument();
+  });
 
-    rerender(<Pagination {...props} totalRows={undefined} />);
+  test('doesn not display results', () => {
+    renderWithProviders(<Pagination {...props} totalRows={undefined} />);
 
     expect(screen.queryByText('0-0 of 0')).not.toBeInTheDocument();
   });
 
   test.each(testCases)('%s', async (testCase) => {
     const { props, labels } = testCase;
-    render(<Pagination {...props} />);
+    renderWithProviders(<Pagination {...props} />);
 
     expect(screen.getAllByRole('button')).toHaveLength(labels.length);
 

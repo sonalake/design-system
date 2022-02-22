@@ -1,7 +1,6 @@
 import React from 'react';
 
-import { QueryableComponent } from '../../models/index';
-import { Typography } from '../index';
+import { QueryableComponent } from '../../models';
 
 type LabelProps = {
   required?: boolean;
@@ -16,19 +15,14 @@ export const Label: React.FC<LabelProps> = ({
   children,
   ...props
 }) => (
-  <Typography
-    as="label"
+  <label
     htmlFor={htmlFor}
     data-testid={props['data-testid']}
     className={className}
   >
     <>
       {children}
-      {required && (
-        <Typography as="span" className="text-error-100 ml-1">
-          *
-        </Typography>
-      )}
+      {required && <span className="text-error-100 ml-1">*</span>}
     </>
-  </Typography>
+  </label>
 );
