@@ -5,20 +5,5 @@
       "PREV": "Previous",
       "RESULTS": "{from}-{to} of {total}"
     }
-  },
-  "STORY_BOOK": {
-    "LABEL": "Label",
-    "HEADING_ONE": "Heading One",
-    "HEADING_TWO": "Heading Two",
-    "HEADING_THREE": "Heading Three",
-    "HEADING_FOUR": "Heading Four",
-    "SUBTITLE_ONE": "Subtitle One",
-    "SUBTITLE_TWO": "Subtitle Two",
-    "BODY": "Body",
-    "CAPTION": "Caption",
-    "CUSTOM_TYPOGRAPHY": "Custom Typography",
-    "ALERT_TITLE": "Title",
-    "ALERT_TITLE_ERROR": "Error",
-    "ALERT_TITLE_WARNING": "Warning are you sure you want to do this?"
   }
 }

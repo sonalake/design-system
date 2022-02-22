@@ -3,6 +3,7 @@ import { render } from '@testing-library/react';
 
 import { Formatting } from '../context';
 import { DesignSystemProvider } from '../design-system.context';
+import { STORYBOOK_LOCALES } from '../i18n/i18n.constant';
 
 type TestRenderConfig = {
   formatting?: Formatting;
@@ -21,7 +22,7 @@ export const DefaultTestProviders = ({
   <DesignSystemProvider
     formatting={formatting}
     language="en"
-    locales={{ en: translations || {} }}
+    locales={{ en: { STORYBOOK_LOCALES, ...translations } || {} }}
   >
     {children}
   </DesignSystemProvider>

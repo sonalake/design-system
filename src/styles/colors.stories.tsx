@@ -4,7 +4,7 @@ import { Meta, Story } from '@storybook/react';
 import config from '../../tailwind.config';
 
 const meta: Meta = {
-  title: 'Atoms/Colors',
+  title: 'Colors',
 };
 
 export default meta;
