@@ -6,7 +6,7 @@ import { Typography } from '../typography';
 import { PropertyItem } from './property-item.component';
 
 export default {
-  title: 'Atoms/PropertyItem',
+  title: 'Atoms/Property Item',
   component: PropertyItem,
   decorators: [
     (Story) => (
