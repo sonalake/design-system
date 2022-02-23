@@ -12,8 +12,14 @@ export const PaginationResults = () => {
     pageIndex < pageCount - 1 ? startIndex + pageSize : totalRows;
 
   return (
-    <Typography className="text-neutral-400 mr-4">{`${
-      totalRows === 0 ? 0 : startIndex + 1
-    }-${endIndex} of ${totalRows}`}</Typography>
+    <Typography
+      translationKey="DESIGN_SYSTEM.PAGINATION.RESULTS"
+      values={{
+        from: totalRows === 0 ? 0 : startIndex + 1,
+        to: endIndex,
+        total: totalRows,
+      }}
+      className="text-neutral-400 mr-4"
+    />
   );
 };

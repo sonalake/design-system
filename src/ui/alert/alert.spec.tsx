@@ -1,8 +1,9 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 
+import { renderWithProviders } from '../../utils';
 import { Alert } from './alert.component';
 import {
   AlertAction,
@@ -15,13 +16,13 @@ import {
 
 describe('Alert', () => {
   test('renders an accessible alert dialog', async () => {
-    const { container } = render(
+    const { container } = renderWithProviders(
       <Alert>
         <AlertTrigger asChild>
           <button type="button">Trigger</button>
         </AlertTrigger>
         <AlertContent>
-          <AlertTitle>Title</AlertTitle>
+          <AlertTitle translationKey="STORY_BOOK.ALERT_TITLE" />
           <AlertDescription>Description</AlertDescription>
           <AlertCancel asChild>
             <button type="button">Cancel</button>
@@ -35,9 +36,7 @@ describe('Alert', () => {
 
     userEvent.click(screen.getByRole('button', { name: 'Trigger' }));
 
-    expect(
-      screen.getByRole('alertdialog', { name: 'Title' })
-    ).toBeInTheDocument();
+    expect(screen.getByRole('heading', { name: 'Title' })).toBeInTheDocument();
     expect(screen.getByRole('alertdialog')).toHaveAccessibleDescription(
       'Description'
     );

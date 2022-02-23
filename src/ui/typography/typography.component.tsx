@@ -1,40 +1,46 @@
-import React, { ComponentProps, forwardRef, ReactNode } from 'react';
-import clsx from 'clsx';
+import React, { ComponentProps, forwardRef } from 'react';
+import { FormattedMessage } from 'react-intl';
 
-import { QueryableComponent } from '../../models/index';
-import { TypographyAs, TypographyVariant } from './typography.model';
-import { getTypographyVariantStyles } from './typography.styles';
-import { getTypographyVariantComponent } from './typography.util';
-
-export type TypographyOwnProps<As extends TypographyAs = 'span'> = Omit<
-  As extends TypographyAs ? JSX.IntrinsicElements[As] : ComponentProps<As>,
-  'children'
-> & {
-  children: ReactNode;
-  as?: As;
-  variant?: TypographyVariant;
-  className?: string;
-};
+import { QueryableComponent } from '../../models';
+import {
+  FormattedMessageProps,
+  TypographyAs,
+  TypographyAsProps,
+  TypographyVariant,
+} from './typography.model';
+import { extractProps, getTypographyVariantComponent } from './typography.util';
 
 export type TypographyProps<As extends TypographyAs = 'span'> =
-  TypographyOwnProps<As> & QueryableComponent;
+  FormattedMessageProps &
+    TypographyAsProps<As> &
+    QueryableComponent & {
+      as?: As;
+      variant?: TypographyVariant;
+      className?: string;
+    };
 
-export const Typography = <As extends TypographyAs = 'span'>({
-  children,
-  as,
-  variant = 'body',
-  className,
-  ...props
-}: TypographyProps<As>) => {
+export const Typography = <As extends TypographyAs = 'span'>(
+  props: TypographyProps<As>
+) => {
+  const { as, variant, id } = props;
   const Component = as ?? getTypographyVariantComponent(variant);
+  const [componentProps, translationProps] = extractProps(props);
+
+  if ('children' in props) {
+    return (
+      <FormattedMessage {...translationProps}>
+        {(...translation) => (
+          <Component {...componentProps}>
+            {props.children({ id }, ...translation)}
+          </Component>
+        )}
+      </FormattedMessage>
+    );
+  }
 
   return (
-    <Component
-      data-testid={props['data-testid'] || 'typography'}
-      className={clsx(getTypographyVariantStyles(variant), className)}
-      {...(props as any)}
-    >
-      {children}
+    <Component {...componentProps}>
+      <FormattedMessage {...translationProps} />
     </Component>
   );
 };
@@ -42,17 +48,14 @@ export const Typography = <As extends TypographyAs = 'span'>({
 export const TypographyWithRef = forwardRef<
   HTMLElement,
   ComponentProps<typeof Typography>
->(({ children, as, variant = 'body', className, ...props }, ref) => {
+>((props, ref) => {
+  const { as, variant } = props;
   const Component = as ?? getTypographyVariantComponent(variant);
+  const [componentProps, translationProps] = extractProps(props);
 
   return (
-    <Component
-      data-testid={props['data-testid'] || 'typography'}
-      className={clsx(getTypographyVariantStyles(variant), className)}
-      ref={ref}
-      {...(props as any)}
-    >
-      {children}
+    <Component {...componentProps} {...ref}>
+      <FormattedMessage {...translationProps} />
     </Component>
   );
 });

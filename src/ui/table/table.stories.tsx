@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { ComponentMeta } from '@storybook/react';
 import { range as _range } from 'lodash';
 
+import { DefaultTestProviders } from '../../utils';
 import { Table } from './table.component';
 
 const meta: ComponentMeta<typeof Table> = {
@@ -16,9 +17,11 @@ const meta: ComponentMeta<typeof Table> = {
   },
   decorators: [
     (Story) => (
-      <div className="max-w-screen-lg">
-        <Story />
-      </div>
+      <DefaultTestProviders>
+        <div className="max-w-screen-lg">
+          <Story />
+        </div>
+      </DefaultTestProviders>
     ),
   ],
 };
