@@ -22,7 +22,7 @@ export const DefaultTestProviders = ({
   <DesignSystemProvider
     formatting={formatting}
     language="en"
-    locales={{ en: { STORYBOOK_LOCALES, ...translations } || {} }}
+    locales={{ en: { ...STORYBOOK_LOCALES, ...translations } || {} }}
   >
     {children}
   </DesignSystemProvider>
