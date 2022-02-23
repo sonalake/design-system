@@ -1,0 +1,104 @@
+import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
+
+import { Typography } from './ui/typography/typography.component.tsx';
+import { DateFormat } from './ui/date-format/date-format.component.tsx';
+import { STORYBOOK_LOCALES } from './i18n/i18n.constant.ts';
+import { DesignSystemProvider } from './design-system.context.tsx';
+
+<Meta title="Sonalake Design System" component={DesignSystemProvider} />
+
+# Sonalake Design System
+
+[Sonalake Design System (SDS)](https://github.com/sonalake/design-system) is a reusable React component library that helps **Internal Sonalake Project** contributors build UIs faster. The goal is to make the building of UIs more durable, productive and satisfying, inline with the [Design System](). An emphasis on Accessibility and Internationalisation is included in the development of the libaray.
+
+## Install
+
+via yarn:
+
+```
+yarn add @sonalake/design-system
+```
+
+via npm:
+
+```
+npm install @sonalake/design-system
+```
+
+## Dependencies
+
+The SDS relies on a number of open source packages, listed below:
+
+- [tsdx](https://tsdx.io/) - _Typescript package development_
+- [radix ui](https://www.radix-ui.com/) - _Accessible component library_
+- [clsx](https://github.com/lukeed/clsx) - _className util package_
+- [date-fns](https://date-fns.org/) - _Date formatting package_
+- [lodash](https://lodash.com/) - _Utility functions package_
+- [react-icons](https://react-icons.github.io/react-icons/) - _React icons package_
+- [react-intl](https://formatjs.io/docs/react-intl/#the-react-intl-package) - _Internationalisation library_
+- [react-table](https://react-table.tanstack.com/) - _React table package_
+- [tailwindcss](https://tailwindcss.com/) - _Utility-first CSS framework_
+
+## Architecture
+
+A list of useable components can be seen in the navigation under Atoms and Molecules. SDS follows [Atomc Design Principles](https://bradfrost.com/blog/post/atomic-web-design/).
+
+A full list of exports can be seen below:
+
+```
+import './style.css';
+
+export * from './context';
+export * from './hooks';
+export * from './i18n';
+export * from './models';
+export * from './ui';
+
+export * from './design-system.context';
+```
+
+## Styling
+
+If you wish you can include the SDS tailwind config in your own projects configuration.
+
+```javascript
+// tailwind.config.js
+module.exports = {
+  content: ['./node_modules/@sonalake/design-system/src/**/*.{js,jsx,ts,tsx}'],
+  presets: [require('@sonalake/design-system/dist/tailwind.config.js')],
+};
+```
+
+## Usage
+
+To use SDS in your own internal React project, it is recommended to include the DesignSystemProvider.
+
+```typescript
+import { DesignSystemProvider } from '@sonalake/design-system';
+
+<DesignSystemProvider language="en" locales={{ en: STORYBOOK_LOCALES }}>
+  // Your app goes here
+</DesignSystemProvider>;
+```
+
+This will give you access to the following benefits of the SDS:
+
+- Internationalisation
+- Formatting
+
+## Example
+
+<Canvas>
+  <Story name="Introduction">
+    <DesignSystemProvider language="en" locales={{ en: STORYBOOK_LOCALES }}>
+      <div className="flex flex-col space-6">
+        <Typography translationKey="STORY_BOOK.INTRO_TITLE" />
+        <DateFormat date={new Date()} />
+      </div>
+    </DesignSystemProvider>
+  </Story>
+</Canvas>
+
+## ArgsTable
+
+<ArgsTable of={DesignSystemProvider} />

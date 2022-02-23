@@ -14,7 +14,7 @@ const meta: ComponentMeta<typeof Tooltip> = {
   },
   decorators: [
     (Story) => (
-      <div className="m-32">
+      <div className="m-6">
         <TooltipProvider>
           <Story />
         </TooltipProvider>
