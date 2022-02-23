@@ -12,6 +12,7 @@
     "no-nested-ternary": "error",
     "react/self-closing-comp": "warn",
     "react/button-has-type": "warn",
+    "arrow-body-style": "error",
     "jest/no-focused-tests": "error",
     "import/first": "error",
     "import/no-duplicates": "error",
