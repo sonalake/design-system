@@ -1,4 +1,5 @@
 export * from './alert';
+export * from './button';
 export * from './date-format';
 export * from './label';
 export * from './pagination';
@@ -7,4 +8,3 @@ export * from './table';
 export * from './tooltip';
 export * from './typography';
 export * from './text-input';
-export * from './button';

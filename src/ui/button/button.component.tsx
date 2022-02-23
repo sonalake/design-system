@@ -1,6 +1,8 @@
 import React, { ComponentPropsWithRef, forwardRef } from 'react';
 
-import { BaseButtonProps, getButtonClasses } from './button.util';
+import { BaseButtonProps } from './button.model';
+import { getButtonClasses } from './button.util';
+
 export type ButtonProps = ComponentPropsWithRef<'button'> & BaseButtonProps;
 
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(

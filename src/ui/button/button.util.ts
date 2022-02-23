@@ -1,11 +1,6 @@
 import clsx from 'clsx';
 
-export type ButtonSize = 'md' | 'sm';
-
-export type BaseButtonProps = {
-  size?: ButtonSize;
-  disabled?: boolean;
-};
+import { BaseButtonProps } from './button.model';
 
 export const getButtonClasses = ({ size, disabled }: BaseButtonProps) =>
   clsx(
