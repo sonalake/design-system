@@ -1,6 +1,16 @@
 {
   "STORY_BOOK": {
-    "INTRO_TITLE": "Design System Content",
+    "INTRO": {
+      "TITLE": "Design System Content"
+    },
+    "NOTIFICATION": {
+      "SUCCESS": "Show Success Notification",
+      "ERROR": "Show Error Notification",
+      "WARNING": "Show Warning Notification",
+      "INFO": "Show Info Notification",
+      "DEFAULT": "Show Default Notification",
+      "CONTENT": "This is a notification!"
+    },
     "LABEL": "Label",
     "HEADING_ONE": "Heading One",
     "HEADING_TWO": "Heading Two",

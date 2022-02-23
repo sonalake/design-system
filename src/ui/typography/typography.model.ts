@@ -1,6 +1,6 @@
 import { FormattedMessage } from 'react-intl';
 
-export type TypographyAs =
+type AllowedTags =
   | 'strong'
   | 'span'
   | 'div'
@@ -13,6 +13,13 @@ export type TypographyAs =
   | 'h4'
   | 'h5'
   | 'h6';
+
+/**
+ * TODO: Replace button with Button component
+ */
+type AllowedComponents = 'button';
+
+export type TypographyAs = AllowedTags | AllowedComponents;
 
 export type TypographyVariant =
   | 'heading1'
