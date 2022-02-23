@@ -28,10 +28,15 @@ module.exports = {
         },
         neutral: {
           100: '#dfe0dd',
+          200: '#636161',
         },
         black: '#1C2B36',
         white: '#FFFFFF',
       },
+      boxShadow: {
+        'primary-100': '0px 0px 5px #45a3db',
+        'error-100': '0px 0px 5px #e74c3c',
+      }
     },
   },
   plugins: [],

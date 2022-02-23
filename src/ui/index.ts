@@ -6,3 +6,4 @@ export * from './property-item';
 export * from './table';
 export * from './tooltip';
 export * from './typography';
+export * from './text-input';
