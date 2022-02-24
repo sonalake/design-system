@@ -8,3 +8,4 @@ export * from './table';
 export * from './tooltip';
 export * from './typography';
 export * from './text-input';
+export * from './stack';
