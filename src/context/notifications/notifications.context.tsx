@@ -24,7 +24,7 @@ type NotificationsProviderProps = {
   children: ReactNode;
 };
 
-let toastCounter = 0;
+let notificationCounter = 0;
 
 export const NotificationsProvider = ({
   children,
@@ -32,7 +32,7 @@ export const NotificationsProvider = ({
   const [notifications, setNotifications] = useState<Notification[]>([]);
 
   const addNotification = useCallback((toast: Omit<Notification, 'id'>) => {
-    const id = `${toastCounter++}`;
+    const id = `${notificationCounter++}`;
 
     setNotifications((notifications) => [
       ...notifications,
