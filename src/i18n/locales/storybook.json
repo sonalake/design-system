@@ -17,6 +17,7 @@
     "BUTTON": "Button",
     "BUTTON_LEFT": "Element on left",
     "BUTTON_RIGHT": "Element on right",
-    "BUTTON_BOTH": "Elements on both"
+    "BUTTON_BOTH": "Elements on both",
+    "CHIP": "Example Chip"
   }
 }
