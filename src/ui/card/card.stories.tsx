@@ -1,5 +1,4 @@
 import React from 'react';
-import { FaSearch } from 'react-icons/fa';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { DefaultTestProviders } from '../../utils';
