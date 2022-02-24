@@ -8,8 +8,9 @@
       "ERROR": "Show Error Notification",
       "WARNING": "Show Warning Notification",
       "INFO": "Show Info Notification",
-      "DEFAULT": "Show Default Notification",
-      "CONTENT": "This is a notification!"
+      "DEFAULT": "Show Notification",
+      "CONTENT": "This is a notification!",
+      "ACTION": "Action"
     },
     "LABEL": "Label",
     "HEADING_ONE": "Heading One",
@@ -21,12 +22,24 @@
     "BODY": "Body",
     "CAPTION": "Caption",
     "CUSTOM_TYPOGRAPHY": "Custom Typography",
-    "ALERT_TITLE": "Title",
-    "ALERT_TITLE_ERROR": "Error",
-    "ALERT_TITLE_WARNING": "Warning are you sure you want to do this?",
+    "ALERT": {
+      "TITLE": "Title",
+      "TITLE_ERROR": "Error",
+      "TITLE_WARNING": "Warning are you sure you want to do this?",
+      "TRIGGER": "Trigger",
+      "DESCRIPTION": "Description",
+      "CANCEL": "Cancel",
+      "ACTION": "Action",
+      "SHOW_ERROR": "Show Error",
+      "CLOSE": "Close",
+      "ERROR_CONTENT": "This is the content of the Error.",
+      "CONTINUE": "Continue",
+      "CONFIRMATION_CONTENT": "This action cannot be undone."
+    },
     "BUTTON": "Button",
     "BUTTON_LEFT": "Element on left",
     "BUTTON_RIGHT": "Element on right",
-    "BUTTON_BOTH": "Elements on both"
+    "BUTTON_BOTH": "Elements on both",
+    "SHOW_TOOLTIP": "Show Tooltip"
   }
 }

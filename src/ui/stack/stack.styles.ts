@@ -1,6 +1,6 @@
 import clsx from 'clsx';
 
-import { BaseStackClasses } from './stack.model';
+import { StackProps } from './stack.component';
 
 export const getStackClasses = ({
   spacing = 2,
@@ -8,7 +8,7 @@ export const getStackClasses = ({
   wrap = false,
   items = 'stretch',
   justify = 'start',
-}: BaseStackClasses) =>
+}: StackProps) =>
   clsx(
     'flex',
 

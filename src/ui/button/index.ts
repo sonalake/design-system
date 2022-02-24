@@ -1,2 +1,2 @@
 export * from './button.component';
-export * from './button.util';
+export * from './button.styles';

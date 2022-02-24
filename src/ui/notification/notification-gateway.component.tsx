@@ -8,11 +8,11 @@ export const NotificationGateway = () => {
 
   return (
     <div className="absolute top-4 right-4 flex flex-col">
-      {notifications.map((notification) => (
+      {notifications.map(({ id, ...notification }) => (
         <Notification
-          key={notification.id}
+          key={id}
           {...notification}
-          onClear={() => removeNotification(notification.id)}
+          onClear={() => removeNotification(id)}
         />
       ))}
     </div>

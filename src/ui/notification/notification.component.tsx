@@ -3,6 +3,7 @@ import { MdClose } from 'react-icons/md';
 import clsx from 'clsx';
 
 import { useTimeout } from '../../hooks';
+import { Button } from '../button';
 import { Typography } from '../typography';
 import { Notification as NotificationModel } from './notification.model';
 import { NotificationIcon } from './notification-icon.component';
@@ -10,7 +11,7 @@ import { NotificationIcon } from './notification-icon.component';
 export type NotificationProps = {
   className?: string;
   onClear: () => void;
-} & NotificationModel;
+} & Omit<NotificationModel, 'id'>;
 
 export const Notification = ({
   message,
@@ -19,15 +20,12 @@ export const Notification = ({
   className,
   onClear,
 }: NotificationProps) => {
-  const { startTimeout, stopTimeout } = useTimeout({
-    duration: 10000,
-    onTimeout: onClear,
-  });
-
   const handleActionClick = useCallback(() => {
     onClear();
     action?.onClick();
   }, [action, onClear]);
+
+  useTimeout({ duration: 10000, onTimeout: onClear });
 
   return (
     <div
@@ -36,8 +34,6 @@ export const Notification = ({
         'border rounded shadow',
         className
       )}
-      onMouseEnter={stopTimeout}
-      onMouseLeave={startTimeout}
     >
       <NotificationIcon status={status} />
       <div role="alert" className="flex-1 truncate text-sm mr-2">
@@ -46,14 +42,14 @@ export const Notification = ({
       <div className="flex-none flex space-x-6">
         {action && (
           <Typography
-            as="button"
+            as={Button}
             translationKey={action.label}
             onClick={handleActionClick}
           />
         )}
 
         <Typography
-          as="button"
+          as={Button}
           translationKey="DESIGN_SYSTEM.ACTIONS.CLOSE"
           onClick={onClear}
         >

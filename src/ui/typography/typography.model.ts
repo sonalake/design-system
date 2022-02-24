@@ -1,5 +1,7 @@
 import { FormattedMessage } from 'react-intl';
 
+import { Button } from './../button';
+
 type AllowedTags =
   | 'strong'
   | 'span'
@@ -14,10 +16,7 @@ type AllowedTags =
   | 'h5'
   | 'h6';
 
-/**
- * TODO: Replace button with Button component
- */
-type AllowedComponents = 'button';
+type AllowedComponents = typeof Button;
 
 export type TypographyAs = AllowedTags | AllowedComponents;
 
@@ -33,7 +32,7 @@ export type TypographyVariant =
 
 export type TypographyAsProps<As extends TypographyAs = 'span'> =
   | Omit<
-      As extends TypographyAs
+      As extends AllowedTags
         ? JSX.IntrinsicElements[As]
         : React.ComponentProps<As>,
       'children'

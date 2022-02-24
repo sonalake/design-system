@@ -2,7 +2,7 @@ import React, { ComponentPropsWithRef, forwardRef } from 'react';
 import clsx from 'clsx';
 
 import { BaseButtonProps } from './button.model';
-import { getButtonClasses } from './button.util';
+import { getButtonClasses } from './button.styles';
 
 export type ButtonProps = ComponentPropsWithRef<'button'> & BaseButtonProps;
 

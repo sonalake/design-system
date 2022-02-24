@@ -1,38 +1,20 @@
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 export type UseTimeoutProps = {
-  onTimeout: () => void;
   duration: number;
+  onTimeout: () => void;
 };
 
 export const useTimeout = ({ onTimeout, duration }: UseTimeoutProps) => {
-  const [activated, setActivated] = useState(true);
-  const timeoutRef = useRef<number | undefined>();
+  const savedCallback = useRef(onTimeout);
 
-  const stopTimeout = useCallback(() => {
-    window.clearTimeout(timeoutRef.current);
-    setActivated(false);
-  }, []);
-
-  const startTimeout = useCallback(() => {
-    setActivated(true);
-  }, []);
-
-  // @ts-ignore
   useEffect(() => {
-    if (activated) {
-      timeoutRef.current = window.setTimeout(() => {
-        onTimeout();
-      }, duration);
+    savedCallback.current = onTimeout;
+  }, [onTimeout]);
 
-      return () => {
-        stopTimeout();
-      };
-    }
-  }, [onTimeout, activated, duration, stopTimeout]);
+  useEffect(() => {
+    const id = window.setTimeout(() => savedCallback.current(), duration);
 
-  return {
-    stopTimeout,
-    startTimeout,
-  };
+    return () => window.clearTimeout(id);
+  }, [duration]);
 };

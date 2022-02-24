@@ -4,6 +4,8 @@ import userEvent from '@testing-library/user-event';
 import { axe } from 'jest-axe';
 
 import { renderWithProviders } from '../../utils';
+import { Button } from '../button';
+import { Typography } from '../typography';
 import { Alert } from './alert.component';
 import {
   AlertAction,
@@ -19,16 +21,20 @@ describe('Alert', () => {
     const { container } = renderWithProviders(
       <Alert>
         <AlertTrigger asChild>
-          <button type="button">Trigger</button>
+          <Typography as={Button} translationKey="STORY_BOOK.ALERT.TRIGGER" />
         </AlertTrigger>
         <AlertContent>
-          <AlertTitle translationKey="STORY_BOOK.ALERT_TITLE" />
-          <AlertDescription>Description</AlertDescription>
+          <AlertTitle translationKey="STORY_BOOK.ALERT.TITLE" />
+          <AlertDescription>
+            <Typography as="p" translationKey="STORY_BOOK.ALERT.DESCRIPTION" />
+          </AlertDescription>
           <AlertCancel asChild>
-            <button type="button">Cancel</button>
+            <Button>
+              <Typography translationKey="STORY_BOOK.ALERT.CANCEL" />
+            </Button>
           </AlertCancel>
           <AlertAction asChild>
-            <button type="button">Action</button>
+            <Typography as={Button} translationKey="STORY_BOOK.ALERT.ACTION" />
           </AlertAction>
         </AlertContent>
       </Alert>
