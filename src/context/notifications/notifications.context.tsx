@@ -12,7 +12,7 @@ import { Notification } from '../../ui/notification/notification.model';
 
 export type NotificationsState = {
   notifications: Notification[];
-  addNotification: (toast: Omit<Notification, 'id'>) => void;
+  addNotification: (notification: Omit<Notification, 'id'>) => void;
   removeNotification: (id: string) => void;
 };
 
@@ -31,17 +31,20 @@ export const NotificationsProvider = ({
 }: NotificationsProviderProps) => {
   const [notifications, setNotifications] = useState<Notification[]>([]);
 
-  const addNotification = useCallback((toast: Omit<Notification, 'id'>) => {
-    const id = `${notificationCounter++}`;
+  const addNotification = useCallback(
+    (notification: Omit<Notification, 'id'>) => {
+      const id = `${notificationCounter++}`;
 
-    setNotifications((notifications) => [
-      ...notifications,
-      {
-        ...toast,
-        id,
-      },
-    ]);
-  }, []);
+      setNotifications((notifications) => [
+        ...notifications,
+        {
+          ...notification,
+          id,
+        },
+      ]);
+    },
+    []
+  );
 
   const removeNotification = useCallback((id: string) => {
     setNotifications((notifications) =>
