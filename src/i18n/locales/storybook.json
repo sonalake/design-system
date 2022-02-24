@@ -13,6 +13,10 @@
     "CUSTOM_TYPOGRAPHY": "Custom Typography",
     "ALERT_TITLE": "Title",
     "ALERT_TITLE_ERROR": "Error",
-    "ALERT_TITLE_WARNING": "Warning are you sure you want to do this?"
+    "ALERT_TITLE_WARNING": "Warning are you sure you want to do this?",
+    "BUTTON": "Button",
+    "BUTTON_LEFT": "Element on left",
+    "BUTTON_RIGHT": "Element on right",
+    "BUTTON_BOTH": "Elements on both"
   }
 }

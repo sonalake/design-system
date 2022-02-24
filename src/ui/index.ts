@@ -1,4 +1,5 @@
 export * from './alert';
+export * from './button';
 export * from './date-format';
 export * from './label';
 export * from './pagination';
