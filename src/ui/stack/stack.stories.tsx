@@ -44,7 +44,7 @@ export default {
   },
 } as ComponentMeta<typeof Stack>;
 
-const Box = ({ label }) => (
+const Box = ({ label }: { label: string }) => (
   <div className=" w-6 h-6 bg-slate-100 border">{label}</div>
 );
 
