@@ -7,6 +7,9 @@ module.exports = {
       mono: ['Roboto Mono', 'monospace'],
     },
     extend: {
+      animation: {
+        'spin-1.5': 'spin 1.5s linear infinite',
+      },
       colors: {
         primary: {
           100: '#45a3db',
@@ -36,7 +39,7 @@ module.exports = {
       boxShadow: {
         'primary-100': '0px 0px 5px #45a3db',
         'error-100': '0px 0px 5px #e74c3c',
-      }
+      },
     },
   },
   plugins: [],
