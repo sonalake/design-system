@@ -1,9 +1,8 @@
 import { Canvas, Meta, Story, ArgsTable } from '@storybook/addon-docs';
 
-import { Typography } from './ui/typography/typography.component.tsx';
-import { DateFormat } from './ui/date-format/date-format.component.tsx';
 import { STORYBOOK_LOCALES } from './i18n/i18n.constant.ts';
-import { DesignSystemProvider } from './design-system.context.tsx';
+import { DesignSystemProvider } from './context/design-system.context.tsx';
+import { Intro } from './intro.component.tsx';
 
 <Meta title="Sonalake Design System" component={DesignSystemProvider} />
 
@@ -53,8 +52,6 @@ export * from './hooks';
 export * from './i18n';
 export * from './models';
 export * from './ui';
-
-export * from './design-system.context';
 ```
 
 ## Styling
@@ -85,16 +82,14 @@ This will give you access to the following benefits of the SDS:
 
 - Internationalisation
 - Formatting
+- Notifications
 
 ## Example
 
 <Canvas>
   <Story name="Introduction">
     <DesignSystemProvider language="en" locales={{ en: STORYBOOK_LOCALES }}>
-      <div className="flex flex-col space-6">
-        <Typography translationKey="STORY_BOOK.INTRO_TITLE" />
-        <DateFormat date={new Date()} />
-      </div>
+      <Intro />
     </DesignSystemProvider>
   </Story>
 </Canvas>

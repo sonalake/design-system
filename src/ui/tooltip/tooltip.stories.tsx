@@ -1,6 +1,8 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { Button } from '../button';
+import { Typography } from '../typography';
 import { Tooltip } from './tooltip.component';
 import { TooltipProvider } from './tooltip.context';
 
@@ -31,7 +33,7 @@ const Template: ComponentStory<typeof Tooltip> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  children: <button type="button">Show Tooltip</button>,
+  children: <Typography as={Button} translationKey="STORY_BOOK.SHOW_TOOLTIP" />,
   content: 'This is the content!',
   side: 'bottom',
 };

@@ -3,6 +3,8 @@ import { MdError, MdWarning } from 'react-icons/md';
 import { ComponentMeta, ComponentStory, Meta } from '@storybook/react';
 
 import { DefaultTestProviders } from '../../utils';
+import { Button } from '../button';
+import { Typography } from '../typography';
 import { Alert } from './alert.component';
 import {
   AlertAction,
@@ -30,16 +32,18 @@ export default meta;
 export const Error: ComponentStory<typeof Alert> = () => (
   <Alert>
     <AlertTrigger asChild>
-      <button type="button">Show error</button>
+      <Typography as={Button} translationKey="STORY_BOOK.ALERT.SHOW_ERROR" />
     </AlertTrigger>
     <AlertContent size="sm">
       <AlertTitle
         icon={<MdError />}
         translationKey="STORY_BOOK.ALERT_TITLE_ERROR"
       />
-      <AlertDescription>This is the content of the Error.</AlertDescription>
+      <AlertDescription>
+        <Typography as="p" translationKey="STORY_BOOK.ALERT.ERROR_CONTENT" />
+      </AlertDescription>
       <AlertCancel asChild>
-        <button type="button">Close</button>
+        <Typography as={Button} translationKey="STORY_BOOK.ALERT.CLOSE" />
       </AlertCancel>
     </AlertContent>
   </Alert>
@@ -48,20 +52,28 @@ export const Error: ComponentStory<typeof Alert> = () => (
 export const Confirmation: ComponentStory<typeof Alert> = () => (
   <Alert>
     <AlertTrigger asChild>
-      <button type="button">Delete account</button>
+      <Typography
+        as={Button}
+        translationKey="STORY_BOOK.ALERT.DELETE_ACCOUNT"
+      />
     </AlertTrigger>
     <AlertContent>
       <AlertTitle
         icon={<MdWarning />}
         translationKey="STORY_BOOK.ALERT_TITLE_WARNING"
       />
-      <AlertDescription>This action cannot be undone.</AlertDescription>
+      <AlertDescription>
+        <Typography
+          as="p"
+          translationKey="STORY_BOOK.ALERT.CONFIRMATION_CONTENT"
+        />
+      </AlertDescription>
       <div className="flex space-x-6">
         <AlertCancel asChild>
-          <button type="button">Cancel</button>
+          <Typography as={Button} translationKey="STORY_BOOK.ALERT.CANCEL" />
         </AlertCancel>
         <AlertAction asChild>
-          <button type="button">Continue</button>
+          <Typography as={Button} translationKey="STORY_BOOK.ALERT.CONTINUE" />
         </AlertAction>
       </div>
     </AlertContent>

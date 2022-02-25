@@ -1,7 +1,12 @@
 import React, { ReactNode } from 'react';
 
-import { DEFAULT_FORMATTING, Formatting, FormattingProvider } from './context';
-import { I18n } from './i18n';
+import { I18n } from '../i18n';
+import {
+  DEFAULT_FORMATTING,
+  Formatting,
+  FormattingProvider,
+} from './formatting';
+import { NotificationsProvider } from './notifications';
 
 type DesignSystemProviderProps<Locales extends 'en'> = {
   children: ReactNode;
@@ -17,6 +22,8 @@ export const DesignSystemProvider = <Locales extends 'en'>({
   locales,
 }: DesignSystemProviderProps<Locales>) => (
   <I18n language={language} locales={locales}>
-    <FormattingProvider formatting={formatting}>{children}</FormattingProvider>
+    <FormattingProvider formatting={formatting}>
+      <NotificationsProvider>{children}</NotificationsProvider>
+    </FormattingProvider>
   </I18n>
 );
