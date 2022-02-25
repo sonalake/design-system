@@ -40,6 +40,7 @@
     "BUTTON_LEFT": "Element on left",
     "BUTTON_RIGHT": "Element on right",
     "BUTTON_BOTH": "Elements on both",
+    "CARD": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu tellus eleifend, vulputate ligula sit amet, fringilla metus. Aenean dignissim turpis libero, sit amet scelerisque ex lobortis nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum tincidunt nulla non libero sodales, sed posuere urna feugiat. ",
     "SHOW_TOOLTIP": "Show Tooltip"
   }
 }
