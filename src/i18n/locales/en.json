@@ -1,5 +1,8 @@
 {
   "DESIGN_SYSTEM": {
+    "ACTIONS": {
+      "CLOSE": "Close"
+    },
     "PAGINATION": {
       "NEXT": "Next",
       "PREV": "Previous",

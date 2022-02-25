@@ -1,6 +1,8 @@
 import { FormattedMessage } from 'react-intl';
 
-export type TypographyAs =
+import { Button } from './../button';
+
+type AllowedTags =
   | 'strong'
   | 'span'
   | 'div'
@@ -14,6 +16,10 @@ export type TypographyAs =
   | 'h5'
   | 'h6';
 
+type AllowedComponents = typeof Button;
+
+export type TypographyAs = AllowedTags | AllowedComponents;
+
 export type TypographyVariant =
   | 'heading1'
   | 'heading2'
@@ -26,7 +32,7 @@ export type TypographyVariant =
 
 export type TypographyAsProps<As extends TypographyAs = 'span'> =
   | Omit<
-      As extends TypographyAs
+      As extends AllowedTags
         ? JSX.IntrinsicElements[As]
         : React.ComponentProps<As>,
       'children'

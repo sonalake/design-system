@@ -1,8 +1,7 @@
 import React, { ReactElement, ReactNode } from 'react';
 import { render } from '@testing-library/react';
 
-import { Formatting } from '../context';
-import { DesignSystemProvider } from '../design-system.context';
+import { DesignSystemProvider, Formatting } from '../context';
 import { STORYBOOK_LOCALES } from '../i18n/i18n.constant';
 
 type TestRenderConfig = {
