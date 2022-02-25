@@ -7,6 +7,7 @@ import {
   FormattingProvider,
 } from './formatting';
 import { NotificationsProvider } from './notifications';
+import { TooltipProvider } from './tooltip';
 
 type DesignSystemProviderProps<Locales extends 'en'> = {
   children: ReactNode;
@@ -23,7 +24,9 @@ export const DesignSystemProvider = <Locales extends 'en'>({
 }: DesignSystemProviderProps<Locales>) => (
   <I18n language={language} locales={locales}>
     <FormattingProvider formatting={formatting}>
-      <NotificationsProvider>{children}</NotificationsProvider>
+      <NotificationsProvider>
+        <TooltipProvider>{children}</TooltipProvider>
+      </NotificationsProvider>
     </FormattingProvider>
   </I18n>
 );

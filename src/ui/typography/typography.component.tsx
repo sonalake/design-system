@@ -1,4 +1,4 @@
-import React, { ComponentProps, forwardRef } from 'react';
+import React, { forwardRef } from 'react';
 import { FormattedMessage } from 'react-intl';
 
 import { QueryableComponent } from '../../models';
@@ -19,10 +19,13 @@ export type TypographyProps<As extends TypographyAs = 'span'> =
       className?: string;
     };
 
-export const Typography = <As extends TypographyAs = 'span'>(
-  props: TypographyProps<As>
-) => {
-  const { as, variant, id } = props;
+export type TypographyRefModel = <As extends TypographyAs = 'span'>(
+  props: TypographyProps<As>,
+  ref?: React.Ref<As>
+) => React.ReactElement | null;
+
+const TypographyRef: TypographyRefModel = (props, ref) => {
+  const { as, id, variant } = props;
   const Component = as ?? getTypographyVariantComponent(variant);
   const [componentProps, translationProps] = extractProps(props);
 
@@ -30,7 +33,7 @@ export const Typography = <As extends TypographyAs = 'span'>(
     return (
       <FormattedMessage {...translationProps}>
         {(...translation) => (
-          <Component {...componentProps}>
+          <Component {...componentProps} {...ref}>
             {props.children({ id }, ...translation)}
           </Component>
         )}
@@ -39,23 +42,10 @@ export const Typography = <As extends TypographyAs = 'span'>(
   }
 
   return (
-    <Component {...componentProps}>
+    <Component {...componentProps} {...ref}>
       <FormattedMessage {...translationProps} />
     </Component>
   );
 };
 
-export const TypographyWithRef = forwardRef<
-  HTMLElement,
-  ComponentProps<typeof Typography>
->((props, ref) => {
-  const { as, variant } = props;
-  const Component = as ?? getTypographyVariantComponent(variant);
-  const [componentProps, translationProps] = extractProps(props);
-
-  return (
-    <Component {...componentProps} {...ref}>
-      <FormattedMessage {...translationProps} />
-    </Component>
-  );
-});
+export const Typography = forwardRef(TypographyRef) as TypographyRefModel;

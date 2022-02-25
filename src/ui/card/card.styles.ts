@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 
-import { CardElevation } from '../../models/card-elevation.model';
+import { Elevation } from '../../models';
 
-const getShadowClass = (elevation?: CardElevation) => {
+const getShadowClass = (elevation?: Elevation) => {
   switch (elevation) {
     case 'none':
       return 'shadow-none';
@@ -20,5 +20,5 @@ const getShadowClass = (elevation?: CardElevation) => {
       return 'shadow';
   }
 };
-export const getCardClasses = (elevation?: CardElevation) =>
+export const getCardClasses = (elevation?: Elevation) =>
   clsx('border rounded p-2 ', getShadowClass(elevation));

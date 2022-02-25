@@ -33,6 +33,7 @@
       "SHOW_ERROR": "Show Error",
       "CLOSE": "Close",
       "ERROR_CONTENT": "This is the content of the Error.",
+      "DELETE_ACCOUNT": "Delete Account",
       "CONTINUE": "Continue",
       "CONFIRMATION_CONTENT": "This action cannot be undone."
     },

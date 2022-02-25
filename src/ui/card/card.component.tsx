@@ -1,13 +1,14 @@
 import React from 'react';
 import clsx from 'clsx';
 
-import { CardElevation } from '../../models/card-elevation.model';
+import { Elevation } from '../../models';
 import { getCardClasses } from './card.styles';
 
 export type CardProps = {
-  elevation?: CardElevation;
+  elevation?: Elevation;
   className?: string;
 };
+
 export const Card: React.FC<CardProps> = ({
   elevation,
   children,

@@ -1,6 +1,10 @@
 import React from 'react';
 
-/**
- * TODO: replace with a Spinner or Page Loader
- */
-export const TableLoader = () => <div>Fetching Table Data</div>;
+import { Spinner } from '../../spinner';
+import { Stack } from '../../stack';
+
+export const TableLoader = () => (
+  <Stack justify="center" className="my-4">
+    <Spinner />
+  </Stack>
+);

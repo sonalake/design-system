@@ -1,10 +1,10 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
+import { DefaultTestProviders } from '../../utils';
 import { Button } from '../button';
 import { Typography } from '../typography';
 import { Tooltip } from './tooltip.component';
-import { TooltipProvider } from './tooltip.context';
 
 const meta: ComponentMeta<typeof Tooltip> = {
   title: 'Atoms/Tooltip',
@@ -17,9 +17,9 @@ const meta: ComponentMeta<typeof Tooltip> = {
   decorators: [
     (Story) => (
       <div className="m-6">
-        <TooltipProvider>
+        <DefaultTestProviders>
           <Story />
-        </TooltipProvider>
+        </DefaultTestProviders>
       </div>
     ),
   ],
@@ -33,7 +33,11 @@ const Template: ComponentStory<typeof Tooltip> = (args) => (
 
 export const Default = Template.bind({});
 Default.args = {
-  children: <Typography as={Button} translationKey="STORY_BOOK.SHOW_TOOLTIP" />,
+  children: (
+    <Button>
+      <Typography translationKey="STORY_BOOK.SHOW_TOOLTIP" />
+    </Button>
+  ),
   content: 'This is the content!',
   side: 'bottom',
 };

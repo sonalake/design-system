@@ -37,7 +37,7 @@ export const Error: ComponentStory<typeof Alert> = () => (
     <AlertContent size="sm">
       <AlertTitle
         icon={<MdError />}
-        translationKey="STORY_BOOK.ALERT_TITLE_ERROR"
+        translationKey="STORY_BOOK.ALERT.TITLE_ERROR"
       />
       <AlertDescription>
         <Typography as="p" translationKey="STORY_BOOK.ALERT.ERROR_CONTENT" />
@@ -60,7 +60,7 @@ export const Confirmation: ComponentStory<typeof Alert> = () => (
     <AlertContent>
       <AlertTitle
         icon={<MdWarning />}
-        translationKey="STORY_BOOK.ALERT_TITLE_WARNING"
+        translationKey="STORY_BOOK.ALERT.TITLE_WARNING"
       />
       <AlertDescription>
         <Typography
