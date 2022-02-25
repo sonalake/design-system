@@ -88,3 +88,5 @@ Meaning of the rules can be checked in [documentation](https://prettier.io/docs/
 - One Component per file.
 - Extract constants from component files.
 - Create stories and tests for all ui components
+- Keep all exports in alphabetical order
+- Keep all translation keys in alphabetical order
