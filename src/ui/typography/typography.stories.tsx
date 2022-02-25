@@ -1,20 +1,12 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { DefaultTestProviders } from '../../utils';
 import { Typography } from './typography.component';
 import { TypographyVariant } from './typography.model';
 
 export default {
   title: 'Atoms/Typography',
   component: Typography,
-  decorators: [
-    (Story) => (
-      <DefaultTestProviders>
-        <Story />
-      </DefaultTestProviders>
-    ),
-  ],
 } as ComponentMeta<typeof Typography>;
 
 const typographyEntries: [string, string][] = [

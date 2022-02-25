@@ -2,20 +2,12 @@ import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { DefaultTestProviders } from '../../utils';
 import { Typography } from '../typography';
 import { Button } from './button.component';
 
 export default {
   title: 'Atoms/Button',
   component: Button,
-  decorators: [
-    (Story) => (
-      <DefaultTestProviders>
-        <Story />
-      </DefaultTestProviders>
-    ),
-  ],
   argTypes: {
     disabled: {
       control: {

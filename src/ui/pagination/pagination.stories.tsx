@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { DefaultTestProviders } from '../../utils';
 import { Pagination } from './pagination.component';
 
 const meta: ComponentMeta<typeof Pagination> = {
   title: 'Molecules/Pagination',
   component: Pagination,
-  decorators: [
-    (Story) => (
-      <DefaultTestProviders>
-        <Story />
-      </DefaultTestProviders>
-    ),
-  ],
 };
 
 export default meta;

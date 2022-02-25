@@ -1,20 +1,12 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { DefaultTestProviders } from '../../../utils';
 import { Typography } from '../../typography';
 import { CheckboxField } from './checkbox-field.component';
 
 export default {
   title: 'Molecules/Fields/Checkbox Field',
   component: CheckboxField,
-  decorators: [
-    (Story) => (
-      <DefaultTestProviders>
-        <Story />
-      </DefaultTestProviders>
-    ),
-  ],
 } as ComponentMeta<typeof CheckboxField>;
 
 export const Default: ComponentStory<typeof CheckboxField> = () => (

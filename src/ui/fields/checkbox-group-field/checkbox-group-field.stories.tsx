@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Meta, Story } from '@storybook/react';
 
-import { DefaultTestProviders } from '../../../utils';
 import {
   CheckboxGroupField,
   CheckboxGroupFieldProps,
@@ -11,13 +10,6 @@ import { CHECKBOX_GROUP_ITEMS } from './test-data.constant';
 const meta: Meta = {
   title: 'Molecules/Fields/Checkbox Group Field',
   component: CheckboxGroupField,
-  decorators: [
-    (Story) => (
-      <DefaultTestProviders>
-        <Story />
-      </DefaultTestProviders>
-    ),
-  ],
 };
 
 export default meta;
