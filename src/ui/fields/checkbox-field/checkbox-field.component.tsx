@@ -1,8 +1,8 @@
 import React, { forwardRef, ReactNode } from 'react';
 
-import { useElementId } from '../../hooks';
-import { Checkbox } from '../checkbox';
-import { Label } from '../label';
+import { useElementId } from '../../../hooks';
+import { Checkbox } from '../../checkbox';
+import { Label } from '../../label';
 
 type CheckboxFieldOwnProps = {
   label: string;

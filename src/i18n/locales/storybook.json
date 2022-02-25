@@ -24,8 +24,12 @@
     "CARD": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut eu tellus eleifend, vulputate ligula sit amet, fringilla metus. Aenean dignissim turpis libero, sit amet scelerisque ex lobortis nec. Interdum et malesuada fames ac ante ipsum primis in faucibus. Vestibulum tincidunt nulla non libero sodales, sed posuere urna feugiat. ",
     "CUSTOM_TYPOGRAPHY": "Custom Typography",
     "CHECKBOX": {
+      "BLUE": "Blue",
+      "GREEN": "Green",
+      "HELP": "Help Message",
       "LABEL": "Checkbox Label",
-      "HELP": "Help Message"
+      "RED": "Red",
+      "YELLOW": "Yellow"
     },
     "HEADING_ONE": "Heading One",
     "HEADING_TWO": "Heading Two",

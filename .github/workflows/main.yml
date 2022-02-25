@@ -7,8 +7,8 @@ on:
     branches: '*'
 
 jobs:
-  quality:
-    name: Quality and Build
+  ci:
+    name: Continuous Integration
     runs-on: ubuntu-latest
 
     steps:
@@ -44,7 +44,7 @@ jobs:
   publish:
     name: Publish and Deploy
     if: ${{ github.ref == 'refs/heads/master' }}
-    needs: [quality]
+    needs: [ci]
     runs-on: ubuntu-latest
 
     steps:

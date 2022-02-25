@@ -3,6 +3,9 @@
     "ACTIONS": {
       "CLOSE": "Close"
     },
+    "CHECKBOX": {
+      "ALL": "All"
+    },
     "PAGINATION": {
       "NEXT": "Next",
       "PREV": "Previous",

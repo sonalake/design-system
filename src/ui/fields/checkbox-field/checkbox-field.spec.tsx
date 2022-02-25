@@ -2,8 +2,8 @@ import React from 'react';
 import { screen } from '@testing-library/react';
 import { axe } from 'jest-axe';
 
-import { renderWithProviders } from '../../utils';
-import { Typography } from '../typography';
+import { renderWithProviders } from '../../../utils';
+import { Typography } from '../../typography';
 import { CheckboxField } from './checkbox-field.component';
 
 describe('CheckboxField', () => {
