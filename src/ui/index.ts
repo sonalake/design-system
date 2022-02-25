@@ -2,6 +2,7 @@ export * from './alert';
 export * from './button';
 export * from './card';
 export * from './checkbox';
+export * from './checkbox-field';
 export * from './date-format';
 export * from './label';
 export * from './notification';
