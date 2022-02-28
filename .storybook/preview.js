@@ -1,4 +1,5 @@
 import '../src/style.css';
+import { DefaultTestProviders } from '../src/utils';
 
 // https://storybook.js.org/docs/react/writing-stories/parameters#global-parameters
 export const parameters = {
@@ -6,3 +7,11 @@ export const parameters = {
   actions: { argTypesRegex: '^on.*' },
   viewMode: 'docs',
 };
+
+export const decorators = [
+  (Story) => (
+    <DefaultTestProviders>
+      <Story />
+    </DefaultTestProviders>
+  ),
+];

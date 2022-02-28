@@ -2,7 +2,6 @@ import React from 'react';
 import { MdError, MdWarning } from 'react-icons/md';
 import { ComponentMeta, ComponentStory, Meta } from '@storybook/react';
 
-import { DefaultTestProviders } from '../../utils';
 import { Button } from '../button';
 import { Typography } from '../typography';
 import { Alert } from './alert.component';
@@ -18,13 +17,6 @@ import {
 const meta: Meta = {
   title: 'Molecules/Alert',
   component: Alert,
-  decorators: [
-    (Story) => (
-      <DefaultTestProviders>
-        <Story />
-      </DefaultTestProviders>
-    ),
-  ],
 } as ComponentMeta<typeof Alert>;
 
 export default meta;

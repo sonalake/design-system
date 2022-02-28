@@ -1,7 +1,6 @@
 import React from 'react';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { DefaultTestProviders } from '../../utils';
 import { Button } from '../button';
 import { Typography } from '../typography';
 import { Tooltip } from './tooltip.component';
@@ -14,15 +13,6 @@ const meta: ComponentMeta<typeof Tooltip> = {
       default: 'light',
     },
   },
-  decorators: [
-    (Story) => (
-      <div className="m-6">
-        <DefaultTestProviders>
-          <Story />
-        </DefaultTestProviders>
-      </div>
-    ),
-  ],
 };
 
 export default meta;
